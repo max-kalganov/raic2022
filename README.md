@@ -2,6 +2,7 @@
 
 This repo contains competition experiments. 
 Link to the competition [Russian AI cup 2022](https://cups.online/ru/contests/coderoyale?utm_source=raic&utm_medium=referral&utm_campaign=to-allcups). 
+
 Also link to the competitions [repo](https://github.com/All-Cups/aicup22)
 
 P.S. Whach out cloning repo. You need to clone `git submodules` too.
