@@ -1,0 +1,3 @@
+[submodule "aicup22"]
+	path = aicup22
+	url = git@github.com:All-Cups/aicup22.git
