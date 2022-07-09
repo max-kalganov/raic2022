@@ -5,7 +5,7 @@ Link to the competition [Russian AI cup 2022](https://cups.online/ru/contests/co
 
 Also link to the competitions [repo](https://github.com/All-Cups/aicup22)
 
-P.S. Whach out cloning repo. You need to clone `git submodules` too.
+P.S. Watch out cloning repo. You need to clone `git submodules` too.
 
 
 ## Few words about the competition
