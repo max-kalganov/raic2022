@@ -37,6 +37,10 @@ class MyStrategy:
             action=ActionOrder.Aim(True)
         )
 
+    def get_self_score(self, game: Game) -> float:
+        my_player = [player for player in game.players if player.id == game.my_id][0]
+        return my_player.score
+
     def get_order(self, game: Game, debug_interface: Optional[DebugInterface]) -> Order:
         my_unit, opponents = self.process_units(game)
 
