@@ -7,6 +7,8 @@ from model.vec2 import Vec2
 from model.action_order import ActionOrder
 from typing import Optional, Tuple, List
 from debug_interface import DebugInterface
+import pickle
+import numpy as np
 
 
 class MyStrategy:
@@ -37,12 +39,27 @@ class MyStrategy:
             action=ActionOrder.Aim(True)
         )
 
+    @staticmethod
+    def get_cur_state(my_unit: Unit, opponents: List[Unit], game: Game):
+        return np.array([
+            len(opponents) > 0,
+            my_unit.direction.x,
+            my_unit.direction.y,
+            my_unit.health
+        ])
+
     def get_self_score(self, game: Game) -> float:
         my_player = [player for player in game.players if player.id == game.my_id][0]
         return my_player.score
 
     def get_order(self, game: Game, debug_interface: Optional[DebugInterface]) -> Order:
         my_unit, opponents = self.process_units(game)
+
+        model = pickle.load(open("data/model.sav", 'rb'))
+
+        cur_state = self.get_cur_state(my_unit, opponents, game)
+        order = model.predict(cur_state)
+
 
         if opponents:
             my_order = self.see_opponents_order(my_unit, opponents)
